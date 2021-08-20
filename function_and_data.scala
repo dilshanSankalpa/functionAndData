@@ -20,7 +20,7 @@ object function_and_data{
     def denom = y/g
 
 
-    def neg : Rational = new Rational( -this.numer , this.denom )
+    def neg() : Rational = new Rational( -this.numer , this.denom )
 
     def -( that : Rational ) : Rational = new Rational( this.numer * that.denom - that.numer * this.denom  , this.denom * that.denom )
 
@@ -50,9 +50,9 @@ class Account (y: Int , z : Double){
     val accountNumber : Int = y
     var balance : Double = z
 
-    def withdraw( amount : Double ) = this.balance -= amount
+    def withdraw( amount : Double ):Unit = this.balance -= amount
 
-    def deposit ( amount : Double ) = this.balance += amount
+    def deposit ( amount : Double ):Unit = this.balance += amount
 
     def transfer( amount : Double , that : Account ): Unit = {
         this.balance =  this.balance - amount
